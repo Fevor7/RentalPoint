@@ -47,8 +47,8 @@ public class LoginCommandAction implements CommandAction{
 			}
 		} catch (ServiceNoSuchUserException e) {
 			page = PAGE_ERROR;
-			//request.setAttribute(REQUEST_PARAM_ERROR_MSG, e.getMessage());
-			//e.printStackTrace();
+			request.setAttribute(REQUEST_PARAM_ERROR_MSG, e.getMessage());
+			e.printStackTrace();
 		}
 		return page;
 	}

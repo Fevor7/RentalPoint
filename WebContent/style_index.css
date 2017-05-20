@@ -1,13 +1,46 @@
 @CHARSET "UTF-8";
- input[type=button] {
+#send {
+  	
     background-color: #1485CC;
     background-position: center center;
     background-repeat: no-repeat;
-    border: 1px solid #1485CC;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    border: 3px solid #1485CC;
     height: 30px;
     padding: 3px;
     width: 75px;
-   
+  
+}
+#send: hover {
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.hov {
+	background-color: #1485CC;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border: 3px solid #1485CC;
+    height: 30px;
+    padding: 3px;
+    width: 75px;
+}
+.hov:hover {
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.send_ord {
+	background-color: #1485CC;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border: 3px solid #1485CC;
+    height: 30px;
+    padding: 3px;
+    width: 75px;
+}
+.send_ord:hover {
+
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
  input[type=submit] {
     background-color: #1485CC;
@@ -56,11 +89,11 @@ input[type="text"] {
 			}
 	 	  .modal{
 	 	  opacity: 0.85;
-    filter: alpha(Opacity=85);
+    	filter: alpha(Opacity=85);
 	 	  background: #fefcea; /* Для старых браузров */
     	  background: linear-gradient(to bottom, #32B0FF, #004E7F);
     	  
-   		 padding: 20px;
+   		 padding: 35px;
    		 padding-top: 10px;
    		 border: 2px solid #19587F;
 	 	  border-style: outset;
@@ -72,6 +105,7 @@ input[type="text"] {
 		  -webkit-transform: translate(-50%, -50%);
 		  -ms-transform: translate(-50%, -50%);
 		  transform: translate(-50%, -50%);
+		   font-size: 20px;
 		   font-family: Myriad Arabic; 
 			}
 
@@ -103,4 +137,7 @@ background-repeat: no-repeat;
     opacity: 0.7; /* Значение прозрачности */
     filter: alpha(Opacity=70); /* Прозрачность в IE */
    }
-   
+ .eqtitle {
+ color: #8C0E0E;
+ font-weight: 600;
+ }

@@ -4,12 +4,41 @@
     background-color: #1485CC;
     background-position: center center;
     background-repeat: no-repeat;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
     border: 1px solid #1485CC;
     height: 30px;
     padding: 3px;
     width: 75px;
-   
-}
+    
+ }
+input[type="date"] {
+				text-align:center; 
+			   border: 1px solid #19587F; //цвет рамки
+			   border-radius: 5px; //закругление углов (общее)
+			   -webkit-border-radius: 3px; //закругление углов (Google Chrome)
+			   -moz-border-radius: 3px; //закругление углов (FireFox)
+			   -khtml-border-radius: 3px; //закругление углов (Safari)
+			   background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
+			   outline: 50px; // высота на свое усмотрение
+			   width: 500px; // ширина на свое усмотрение
+			   color: #cccccc; //цвет шрифта в обычном состоянии
+			   font-size: 12px; // Размер шрифта
+			   font-family: Comic Sans MS; // Стиль шрифт
+			}
+input[type="text"] {
+				text-align:center; 
+			   border: 1px solid #19587F; //цвет рамки
+			   border-radius: 5px; //закругление углов (общее)
+			   -webkit-border-radius: 3px; //закругление углов (Google Chrome)
+			   -moz-border-radius: 3px; //закругление углов (FireFox)
+			   -khtml-border-radius: 3px; //закругление углов (Safari)
+			   background: #ffffff !important; // желательно прописывать, так как в Chrome при сохранных данных оно может быть желтым
+			   outline: 50px; // высота на свое усмотрение
+			   width: 500px; // ширина на свое усмотрение
+			   color: #cccccc; //цвет шрифта в обычном состоянии
+			   font-size: 12px; // Размер шрифта
+			   font-family: Comic Sans MS; // Стиль шрифт
+			}
 .simple-little-table {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#666;
@@ -110,4 +139,56 @@
 .simple-little-table a:hover {
 	color: #bd5a35;
 	text-decoration:underline;
+}
+.simple-little-table tr:hover #button1 { 
+	opacity: 1;
+}
+#button1{
+ opacity: 0;
+ }
+ #order{
+ display: none;
+ }
+.modal2{
+	 	  opacity: 0.85;
+    filter: alpha(Opacity=85);
+	 	  background: #fefcea;
+    	  background: linear-gradient(to bottom, #32B0FF, #004E7F);
+   		 padding: 35px;
+   		 padding-top: 10px;
+   		 border: 2px solid #19587F;
+	 	  border-style: outset;
+	 	  border-radius: 15px; 
+		  position: fixed; top: 45%; left: 85%;
+		  -webkit-transform: translate(-50%, -50%);
+		  -ms-transform: translate(-50%, -50%);
+		  transform: translate(-50%, -50%);
+		  text-align:center; 
+		  font-size: 20px;
+		   font-family: Myriad Arabic; 
+			}
+			
+.modal2: hover {
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 5px solid #1485CC;
+}
+
+
+.qqq {
+  	
+    background-color: #1485CC;
+    background-position: center center;
+    background-repeat: no-repeat;
+   	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 3px solid #1485CC;
+    height: 30px;
+    padding: 3px;
+    width: 75px;
+  
+}
+ .qqq: hove  {
+
+   	box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    border: 10px solid #1485CC;
+
 }

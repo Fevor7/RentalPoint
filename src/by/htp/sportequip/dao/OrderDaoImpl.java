@@ -73,11 +73,11 @@ public class OrderDaoImpl implements OrderDao{
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		}  finally {
-            try { conn.close(); } catch(SQLException se) { /*can't do anything */ }
-            try { ps.close(); } catch(SQLException se) { /*can't do anything */ }
-            try { rs.close(); } catch(SQLException se) { /*can't do anything */ }
-        }
+		}  //finally {
+//            try { conn.close(); } catch(SQLException se) { /*can't do anything */ }
+//            try { ps.close(); } catch(SQLException se) { /*can't do anything */ }
+//            try { rs.close(); } catch(SQLException se) { /*can't do anything */ }
+//        }
 		return listOrder;
 	}
 	

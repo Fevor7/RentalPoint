@@ -33,4 +33,5 @@ public final class ConstantValue {
 	public static final String SQL_STATEMENT_SELECT_USER = "select * from user where login = ? and password = ?";
 	public static final String SQL_STATEMENT_ORDER_CREATE = "INSERT INTO mysport.order (id_user, id_equipment, date_start, date_end) VALUE(?, ?, ?, ?)";
 	public static final String SQL_STATEMENT_SELECT_ORDER = "select id_order, id_user, id_equipment, date_start, date_end from mysport.order";
+	public static final String SQL_STATEMENT_SELECT_EQUIP = "select * from mysport.equipment";
 }

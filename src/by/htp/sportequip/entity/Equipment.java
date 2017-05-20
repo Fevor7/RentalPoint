@@ -1,46 +1,71 @@
 package by.htp.sportequip.entity;
 
 public class Equipment {
+
 	private Long equipId;
 	private String name;
+	private String title;
 	private double price;
-	
-	public Equipment(){
+	private String type;
+
+	public Equipment() {
 		super();
 	}
-	public Equipment(Long id){
+
+	public Equipment(Long equipId) {
 		super();
-		this.equipId=id;
+		this.equipId = equipId;
 	}
-	public Equipment(String name, double price) {
+
+	public Equipment(Long equipId, String name, String title, double price, String type) {
 		super();
+		this.equipId = equipId;
 		this.name = name;
+		this.title = title;
 		this.price = price;
+		this.type = type;
 	}
-	public Equipment(Long id, String name, double price) {
-		super();
-		this.equipId = id;
-		this.name = name;
-		this.price = price;
-	}
+
 	public Long getEquipId() {
 		return equipId;
 	}
+
 	public void setEquipId(Long equipId) {
 		this.equipId = equipId;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
 	public double getPrice() {
 		return price;
 	}
+
 	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -50,8 +75,11 @@ public class Equipment {
 		long temp;
 		temp = Double.doubleToLongBits(price);
 		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -73,11 +101,23 @@ public class Equipment {
 			return false;
 		if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
 			return false;
+		if (title == null) {
+			if (other.title != null)
+				return false;
+		} else if (!title.equals(other.title))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		return true;
 	}
+
 	@Override
 	public String toString() {
-		return "Equipment [equipId=" + equipId + ", name=" + name + ", price=" + price + "]";
+		return "Equipment [equipId=" + equipId + ", name=" + name + ", title=" + title + ", price=" + price + ", type="
+				+ type + "]";
 	}
 	
 }

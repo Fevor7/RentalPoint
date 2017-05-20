@@ -28,7 +28,7 @@ public class OrderCreateAction implements CommandAction{
 		String equipId = request.getParameter(PARAM_EQUIPMENT_ID);
 		String dateStart = request.getParameter(PARAM_DATE_START);
 		String dateEnd = request.getParameter(PARAM_DATE_END);
-		
+		System.out.println(userId+" "+ equipId+" "+ dateStart+" "+ dateEnd);
 		User user = new User();
 		user.setUserId(Long.valueOf(userId));
 		
@@ -38,9 +38,9 @@ public class OrderCreateAction implements CommandAction{
 		Date start = Date.valueOf(dateStart);
 		Date end = Date.valueOf(dateEnd);
 		service.makeOrder(user, equip, start, end);
-		
 		List<Order> orderList = service.orderAll();
 		request.setAttribute(REQUEST_PARAM_LIST_ORDER, orderList);
+		System.out.println(page);
 		return page;
 	}
 

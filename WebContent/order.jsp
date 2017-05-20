@@ -8,15 +8,15 @@
 		<link rel="stylesheet" type="text/css" href="style_table.css">
 	</head>
 	<body>
-		<a href="index.html" > ...back</a>
+		<a href="index.jsp" > ...back</a>
 		<div align="center">
-			<form action="MainServlet" method="GET">
+			<form action="MainServlet" method="POST">
 				<input type="hidden" value="create_order" name="action"/>
 				<input type="text" name="user_id" value="1"/>
-				<input type = "text" name ="equip_id" value="1"/>
-				<input type = "date" name="date_start" value="2017-02-15"/>
-				<input type = "date" name="date_end" value="2017-02-17"/> <br><br>
-				<div class="sub2"></div><input type = "submit" name="Order" value="Send order" /></div>
+				<input type = "text"  name ="equip_id" value="1"/>
+				<input type = "date"  name="date_start" value="2017-02-15"/>
+				<input type = "date"  name="date_end" value="2017-02-17"/> <br><br>
+				<input type = "submit" name="Order" value="Send order" />
 			</form>
 		</div>
 	</body>

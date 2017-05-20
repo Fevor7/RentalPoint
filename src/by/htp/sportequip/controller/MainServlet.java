@@ -3,6 +3,7 @@ package by.htp.sportequip.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,9 +17,9 @@ public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 2318321201221871240L;
 
 	public MainServlet() {
-        super();
+		super(); 
     }
-
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("to Get");
 		processRequest(request, response);

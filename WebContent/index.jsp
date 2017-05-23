@@ -6,23 +6,67 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Insert title here</title>
-		<link rel="stylesheet" type="text/css" href="style_index.css">
-		<link rel="stylesheet" type="text/css" href="style_table.css">
+		<link rel="stylesheet" type="text/css" href="css/style_index.css">
+		<link rel="stylesheet" type="text/css" href="css/style_table.css">
+		<link rel="stylesheet" type="text/css" href="css/styleHeader.css">
+		
+		<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
+		<link rel="stylesheet" href="css/styleMenu.css" type="text/css">
+		
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+ 		<script type="text/javascript" src="jquery.sticky.js"></script>
 		<script src="script.js"></script>
+		<script>
+    	$(window).load(function(){
+     	 $(".menu").sticky({ topSpacing: 0 });
+    	});
+  </script>
 	</head>
 	<body>
-			<div class="modal" align="center" id="autoriz">
-					<form>
-						<h3>Authorization</h3>
-						<input type="hidden" value="login" name="action"/>
-						<input type="text"name="login" value = "user" placeholder="login"/>
-						<br> <br> 
-						<input type="password" name="pass" value="user" placeholder="pass"/> <br>
-						 <span id="result2" ></span> <br>
-						<input class="hov" type="button" value="LogIN" OnClick="sendlog()" />
-					</form>
-			</div>
-			<!-- <div align = "right"  > <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2350.2310548897785!2d27.520322030456544!3d53.909869964032424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xe9b6946f3b138bd3!2z0JHQtdC70LzQsNGA0LrQtdGC!5e0!3m2!1sru!2sru!4v1494949123769" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe></div> -->
-			<div class="arrort2" id="result" align="left" ></div>
-		</body>
+		<header class="header" OnClick="homePage()"></header>
+		<nav class="menu">
+			<nav class="menu1">
+				<div class="dws-menu">
+					<ul>
+						<li OnClick="homePage()"><a href="#"><i></i>Home</a></li>
+						<li><a href="#" OnClick="outEquip()"><i></i>Catalog</a>
+							<ul>
+								<li><a href="#">Equipment</a>
+									<ul>
+										<li><a href="#">Bike</a></li>
+										<li><a href="#">Scooter</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Accessory</a>
+									<ul>
+										<li><a href="#">Castle</a></li>
+										<li><a href="#">Pump</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li  onclick="showContent('contact.html')"><a href="#"><i></i>Contacts</a></li>
+					</ul>
+				</div>
+			</nav>
+			<nav class="menu2">
+				<div class="dws-menu">
+					<ul>
+						<li OnClick="logIn()"><a href="#"><i></i>LogIn</a></li>
+					</ul>
+				</div>
+			</nav>
+		</nav>
+		<div class="arrort" id="arrort"></div>
+		<div class="modal" align="center" id="autoriz">
+			<form class="author" onkeypress="pressEnter(event)">
+				<h2>Authorization</h2>
+				<input type="hidden" value="login" name="action"/>
+				<input class="textIn" type="text" name="login" value = "user" placeholder="login"/><br> <br>
+				<input class="textIn" type="password" name="pass" value="user" placeholder="pass"/> <br>
+				<span class="error" ></span> <br>
+				<input class="hov" type="button" value="LogIN" OnClick="sendlog()"/>
+			</form>
+		</div>
+	</body>
 </html>

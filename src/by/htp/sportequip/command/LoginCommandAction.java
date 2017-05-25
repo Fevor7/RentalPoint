@@ -1,9 +1,11 @@
 package by.htp.sportequip.command;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import by.htp.sportequip.entity.Equipment;
 import by.htp.sportequip.entity.User;
@@ -31,7 +33,7 @@ public class LoginCommandAction implements CommandAction{
 		
 		String login = request.getParameter(REQUEST_PARAM_LOGIN);
 		String password = request.getParameter(REQUEST_PARAM_PASSWORD);
-		
+		HttpSession session = request.getSession(true);
 		User user;
 		try {
 			user = userService.authorise(login, password);
@@ -39,14 +41,27 @@ public class LoginCommandAction implements CommandAction{
 			if(!user.isRole()){
 				List<Equipment> equipment = equipService.list();
 				request.setAttribute(REQUEST_PARAM_LIST_EQ, equipment);
-				page = PAGE_USER_MAIN;
+				session.setAttribute("user", "user1");
+				try {
+					response.getWriter().print("user1");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				page = null;
 			}
 			else {
 				// add report
 				page = PAGE_ADMIN_MAIN;
 			}
 		} catch (ServiceNoSuchUserException e) {
-			page = PAGE_ERROR;
+			try {
+				response.getWriter().print("error");
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+			page = null;
 			request.setAttribute(REQUEST_PARAM_ERROR_MSG, e.getMessage());
 			e.printStackTrace();
 		}

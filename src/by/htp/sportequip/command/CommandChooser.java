@@ -16,6 +16,11 @@ public class CommandChooser {
 		case ACTION_ORDER:
 			System.out.println("makeOrder"+action);
 			return new MakeOrderAction();
+		case ACTION_EQUIP:
+			System.out.println("equip list"+action);
+			return new EquipCommandAction();
+		case ACTION_AUT:
+			return new RegCommandAction();
 		}
 		return null;
 	}

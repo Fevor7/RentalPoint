@@ -1,10 +1,13 @@
 package by.htp.sportequip.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import by.htp.sportequip.dao.EquipmentDao;
 import by.htp.sportequip.dao.EquipmentDaoImpl;
 import by.htp.sportequip.entity.Equipment;
+
+import static by.htp.sportequip.util.ConstantValue.*;
 
 public class EquipmentServiceImpl implements EquipmentService{
 	private EquipmentDao dao;
@@ -14,8 +17,28 @@ public class EquipmentServiceImpl implements EquipmentService{
 	}
 	@Override
 	public List<Equipment> list() {
-		
 		return dao.fetchAllEquip();
+	}
+	public List<Equipment> listType(String type, String name) {
+		List<Equipment> equip = null;
+		if(("all").equals(name)){
+			equip = dao.fetchTypeEquip(type,SQL_STATEMENT_SELECT_EQUIP_TYPE);
+		} else {
+			equip = dao.fetchTypeEquip(name,SQL_STATEMENT_SELECT_EQUIP_NAME);
+		}
+		return equip;
+	}
+	@Override
+	public List<Equipment> filterPr(String min, String max, List<Equipment> equip) {
+		double minPr = Double.parseDouble(min);
+		double maxPr = Double.parseDouble(max);
+		for (int i=(equip.size()-1); i>=0;i--){
+			System.out.println(equip.size()+" "+i);
+			if((equip.get(i).getPrice()<minPr)||(equip.get(i).getPrice()>maxPr)) {
+				equip.remove(i);
+			}
+		}
+		return equip;
 	}
 	
 }

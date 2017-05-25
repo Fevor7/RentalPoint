@@ -26,6 +26,4 @@ public class UserServiceImpl implements UserService {
 	public boolean logOut(User user) {
 		return false;
 	}
-	
-
 }

@@ -1,6 +1,80 @@
 @CHARSET "UTF-8";
+.map {
+	z-index: 1;
+	position: fixed; top: 65%; left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+.equiparr {
+	position: absolute; top: 1000px; left: 250px;
+}
+.filters {
+	padding: 10px;
+	background-color: #FFFFFF;
+	box-shadow: 0 0 15px rgba(167,207,223,0.5);
+	margin-left:15px;
+	position: fixed; top: 130px; left: 0px;
+	border-radius: 5px;
+	height: 180px;
+	width: 100px;
+}
+.equipList,.equipListFilter {
+	/*width: 80%;*/
+	display: inline-block;
+	position: absolute; top: 120px; left: 150px; right: 170px;
+}
+.windowEquip {
+	background-color: #FFFFFF;
+	box-shadow: 0 0 7px rgba(167,207,223,0.5);
+	width: 250px;
+	/*height: 120px;*/
+	display: inline-block;
+	padding: 10px;
+	border-radius: 10px;
+	margin:10px;
+	position: relative;
+}
+.windowEquip:hover {
+	box-shadow: 0 0 20px rgba(167,207,223,0.9);
+	cursor:pointer;
+}
 
+.windowEquip .orderBut {
+	display: none;
+    font-size: 20px;
+    opacity: 0.95;
+    border-radius: 15px;
+    
+} 
+.windowEquip:hover .orderBut {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(20%, -50%);
+	
+}
+.orderBut:hover {
+	box-shadow: 0 0 15px rgba(0,0,0,0.9);
+  	cursor:pointer;
+}
 
+.winEqImg {
+	float: left;
+}
+.line1 {
+	color: #002F4C;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+.line2,.line3{
+	color: #000000;
+}
+.line3 {
+	font-size: 20px;
+	color: #8C0E0E;
+}
 #send {
     background-color: #1485CC;
     background-position: center center;
@@ -16,22 +90,27 @@
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.hov {
+.hov,.orderBut,.butFilter {
 	background-color: #1485CC;
 	background: linear-gradient(to bottom, #32B0FF, #004E7F);
     background-position: center center;
     background-repeat: no-repeat;
     box-shadow: 0 0 10px rgba(0,0,0,0.7);
     border: 0px solid #1485CC;
-    border-radius: 7px;
-    height: 30px;
-    padding-left: 15px;
-    padding-right: 15px;
+    border-radius: 9px;
+    /*height: 30px;*/
+    padding: 9px;
+    padding-left: 20px;
+    padding-right: 20px;
     font-size: 15px;
     font-weight: 500;
 }
-
-.hov:hover {
+.butFilter {
+	padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.hov,.butFilter:hover {
   box-shadow: 0 0 15px rgba(0,0,0,0.9);
   cursor:pointer;
 }
@@ -50,7 +129,7 @@
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
-.textIn{
+.textIn,.linePraceMax,.linePraceMin{
 	text-align:center; 
 	border: 1px solid #19587F;
 	border-radius: 5px;
@@ -63,8 +142,12 @@
 	width: 150px;
 	font-size: 14px;
 }
-
-
+.linePraceMax,.linePraceMin{
+	width: 30px;
+}
+.textIn,.linePraceMin,.linePraceMax:focus {
+    box-shadow: 0 0 10px rgba(0,0,0,0.7);
+}
 .field {
 	clear:both; 
 	text-align:center; 
@@ -72,12 +155,11 @@
 }
 
 .modal{
-	opacity: 0.85;
-    filter: alpha(Opacity=85);
 	background: #fefcea;
 	background: linear-gradient(to bottom, #32B0FF, #004E7F);
    	padding: 35px;
    	padding-top: 10px;
+   	padding-bottom: 20px;
    	border: 2px solid #19587F;
 	border-style: outset;
 	border-radius: 15px; 
@@ -89,16 +171,16 @@
 	font-size: 12px;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
 	display: none;
-	
+	z-index: 101;
 }
 
- p {
+ /*p {
  	filter: alpha(Opacity=87);
 	opacity: 0.87;
     font-style: italic;
     font-weight:bold;
     font-size: large;
-}
+}*/
    
 .semilayer {
     padding: 5px;
@@ -124,22 +206,22 @@
  display: none;
  }
 .modal2{
-	margin:120px;
-	opacity: 0.85;
+	opacity: 0.95;
     filter: alpha(Opacity=85);
 	background: #fefcea;
 	background: linear-gradient(to bottom, #32B0FF, #004E7F);
-   	padding: 35px;
-   	padding-top: 10px;
+   	padding: 20px;
+   	padding-top: 5px;
    	border: 2px solid #19587F;
 	border-style: outset;
 	border-radius: 15px; 
-	position: fixed; top: 30%; left: 80%;
-	-webkit-transform: translate(-50%, -50%);
+	position: fixed; top: 130px; right: 10px;
+	/*-webkit-transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);*/
 	font-family: Tahoma;
 	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	width:150px;
 }
 .qqq {
   	
@@ -159,9 +241,6 @@
 }
 
 .arrort {
-	margin:135px;
-}
-
-.line{
-	margin:87px;
+	margin:105px 0px 0px;
+	width: 100%;
 }

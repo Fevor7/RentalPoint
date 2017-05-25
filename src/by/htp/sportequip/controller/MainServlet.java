@@ -18,8 +18,17 @@ public class MainServlet extends HttpServlet {
 
 	public MainServlet() {
 		super(); 
+		System.out.println("konstruct");
     }
+	public void init(ServletConfig config) throws ServletException {
+		super.init(config);
+		System.out.println("init");
+	}
 	
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		super.service(request, response);
+		System.out.println("service");
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("to Get");
 		processRequest(request, response);
@@ -40,9 +49,11 @@ public class MainServlet extends HttpServlet {
 //			response.setContentType("application/xml");
 //		    response.setHeader("Cache-Control", "no-cache");
 //		    response.getWriter().write("dff");  
+			if (page!=null) {
+				RequestDispatcher disp = request.getRequestDispatcher(page);
+				disp.forward(request, response );
+			}
 			
-			RequestDispatcher disp = request.getRequestDispatcher(page);
-			disp.forward(request, response );
 		}
 	}
 }

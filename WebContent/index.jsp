@@ -12,47 +12,50 @@
 		
 		<link rel="stylesheet" href="css/font-awesome.css" type="text/css">
 		<link rel="stylesheet" href="css/styleMenu.css" type="text/css">
+		<link rel="stylesheet" href="css/styleSlider.css" type="text/css">
 		
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
- 		<script type="text/javascript" src="jquery.sticky.js"></script>
-		<script src="script.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+ 		<script type="text/javascript" src="js/jquery.sticky.js"></script>
+ 		<script type="text/javascript" src="js/jquery2.js"></script>
+		<script src="js/script.js"></script>
+		<script src="js/slider.js"></script>
 		<script>
     	$(window).load(function(){
      	 $(".menu").sticky({ topSpacing: 0 });
     	});
   </script>
 	</head>
-	<body>
-		<header class="header" OnClick="homePage()"></header>
+	<body onload='session()'>
+		<header class="header" OnClick="homePage() "></header>
 		<nav class="menu">
 			<nav class="menu1">
 				<div class="dws-menu">
 					<ul>
 						<li OnClick="homePage()"><a href="#"><i></i>Home</a></li>
-						<li><a href="#" OnClick="outEquip()"><i></i>Catalog</a>
+						<li><a href="#" OnClick="outEquip('all','all')"><i></i>Catalog</a>
 							<ul>
-								<li><a href="#">Equipment</a>
+								<li><a href="#" OnClick="outEquip('EQ','all')">Equipment</a>
 									<ul>
-										<li><a href="#">Bike</a></li>
-										<li><a href="#">Scooter</a></li>
+										<li><a href="#" OnClick="outEquip('EQ','Bike')">Bike</a></li>
+										<li><a href="#" OnClick="outEquip('EQ','Scooter')">Scooter</a></li>
 									</ul>
 								</li>
-								<li><a href="#">Accessory</a>
+								<li><a href="#" OnClick="outEquip('EC','all')">Accessory</a>
 									<ul>
-										<li><a href="#">Castle</a></li>
-										<li><a href="#">Pump</a></li>
+										<li><a href="#" OnClick="outEquip('EC','Castle')">Castle</a></li>
+										<li><a href="#" OnClick="outEquip('EC','Pump')">Pump</a></li>
 									</ul>
 								</li>
 							</ul>
 						</li>
-						<li  onclick="showContent('contact.html')"><a href="#"><i></i>Contacts</a></li>
+						<li  onclick="showPage('contact.html','arrort')"><a href="#"><i></i>Contacts</a></li>
 					</ul>
 				</div>
 			</nav>
 			<nav class="menu2">
 				<div class="dws-menu">
 					<ul>
-						<li OnClick="logIn()"><a href="#"><i></i>LogIn</a></li>
+						<li OnClick="logIn()"><a href="#"><i></i><span class="LogIn"></span></a></li>
 					</ul>
 				</div>
 			</nav>
@@ -65,8 +68,15 @@
 				<input class="textIn" type="text" name="login" value = "user" placeholder="login"/><br> <br>
 				<input class="textIn" type="password" name="pass" value="user" placeholder="pass"/> <br>
 				<span class="error" ></span> <br>
-				<input class="hov" type="button" value="LogIN" OnClick="sendlog()"/>
+				<input class="hov" type="button" value="LogIN" OnClick="sendLog()"/>
 			</form>
+		</div>
+		<div id="slider-wrap">
+			<div id="slider" align="center">
+				<div class="slide"><img src="images/foto2.jpg" width="1376" height="768"></div>
+				<div class="slide"><img src="images/foto1.jpg" width="1376" height="768"></div>
+				<div class="slide"><img src="images/foto3.jpg" width="1376" height="768"></div>
+			</div>
 		</div>
 	</body>
 </html>

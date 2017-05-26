@@ -45,13 +45,12 @@ public class EquipmentDaoImpl implements EquipmentDao{
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+            try { conn.close(); } catch(SQLException se) { se.printStackTrace();}
+            try { ps.close(); } catch(SQLException se) {se.printStackTrace();}
+            try { rs.close(); } catch(SQLException se) {se.printStackTrace();}
+        }
 		
-		
-//		List<Equipment> equipment = new ArrayList<Equipment>();
-//		equipment.add(new Equipment("eq1",25));
-//		equipment.add(new Equipment("eq2", 30));
-//		equipment.add(new Equipment("eq3",35));
 		return equipList;
 	}
 
@@ -85,13 +84,11 @@ public class EquipmentDaoImpl implements EquipmentDao{
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		} 
-		
-		
-//		List<Equipment> equipment = new ArrayList<Equipment>();
-//		equipment.add(new Equipment("eq1",25));
-//		equipment.add(new Equipment("eq2", 30));
-//		equipment.add(new Equipment("eq3",35));
+		} finally {
+            try { conn.close(); } catch(SQLException se) { se.printStackTrace();}
+            try { ps.close(); } catch(SQLException se) {se.printStackTrace();}
+            try { rs.close(); } catch(SQLException se) {se.printStackTrace();}
+        }
 		return equipList;
 	}
 

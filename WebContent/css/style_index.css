@@ -1,4 +1,7 @@
 @CHARSET "UTF-8";
+.exit {
+	display: none;
+}
 .map {
 	z-index: 1;
 	position: fixed; top: 65%; left: 50%;

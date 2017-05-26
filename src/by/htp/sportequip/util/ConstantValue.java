@@ -9,13 +9,15 @@ public final class ConstantValue {
 	public static final String ACTION_ORDER = "make_order";
 	public static final String ACTION_EQUIP = "equipList";
 	public static final String ACTION_AUT = "log";
+	public static final String ACTION_HOMEPAGE = "homePage";
+	public static final String ACTION_QUITSESSION = "quitSession";
 	
 	public static final String PAGE_ADMIN_MAIN = "/admin.jsp";
 	public static final String PAGE_USER_MAIN = "/equipList.jsp";
 	public static final String PAGE_ORDER_ALL = "/order.jsp";
 	public static final String PAGE_ORDER_CREATE = "/order.jsp";
 	public static final String PAGE_ERROR = "/error.jsp";
-	public static final String PAGE_DEFAULT = "/index.html"; 
+	public static final String PAGE_HOMEPAGE = "/homepage.jsp"; 
 	public static final String PAGE_ORDER_LIST = "/orderlist.jsp";
 	
 	public static final String REQUEST_PARAM_ACTION = "";

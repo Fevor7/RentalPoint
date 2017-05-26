@@ -26,11 +26,12 @@ public class OrderDaoImpl implements OrderDao{
 		String dbUser=rb.getString("db.login");
 		String dbPass=rb.getString("db.pas");
 		String driverName = rb.getString("db.driver.name");
-		User user = null;
+		Connection conn = null;
+		PreparedStatement ps = null;
 		try {
 			Class.forName(driverName);
-			Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-			PreparedStatement ps = conn.prepareStatement(SQL_STATEMENT_ORDER_CREATE);
+			conn = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+			ps = conn.prepareStatement(SQL_STATEMENT_ORDER_CREATE);
 				ps.setLong(1, order.getUser().getUserId());
 				ps.setLong(2, order.getEquipment().getEquipId());
 				ps.setDate(3, order.getDateStart());
@@ -38,7 +39,10 @@ public class OrderDaoImpl implements OrderDao{
 			ps.executeUpdate();
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		}
+		} finally {
+            try { conn.close(); } catch(SQLException se) { se.printStackTrace();}
+            try { ps.close(); } catch(SQLException se) {se.printStackTrace();}
+        }
 		return false;
 	}
 
@@ -58,7 +62,7 @@ public class OrderDaoImpl implements OrderDao{
 			Class.forName(driverName);
      		conn = DriverManager.getConnection(dbUrl, dbUser,dbPass);
 			 ps = conn.prepareStatement(SQL_STATEMENT_SELECT_ORDER);
-			rs = ps.executeQuery();
+			 rs = ps.executeQuery();
 			
 			while (rs.next()) {
 				Long orderId = rs.getLong(1);
@@ -73,11 +77,11 @@ public class OrderDaoImpl implements OrderDao{
 			}
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
-		}  //finally {
-//            try { conn.close(); } catch(SQLException se) { /*can't do anything */ }
-//            try { ps.close(); } catch(SQLException se) { /*can't do anything */ }
-//            try { rs.close(); } catch(SQLException se) { /*can't do anything */ }
-//        }
+		}  finally {
+            try { conn.close(); } catch(SQLException se) { se.printStackTrace();}
+            try { ps.close(); } catch(SQLException se) {se.printStackTrace();}
+            try { rs.close(); } catch(SQLException se) {se.printStackTrace();}
+        }
 		return listOrder;
 	}
 	

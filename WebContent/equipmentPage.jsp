@@ -3,7 +3,7 @@
 			</div>
 			<aside class="filters">
 			 	<div class="asideFixed">
-				 	<span class="line1">Filters </span><br><br>
+				 	<span class="line1">Search options </span><br><br>
 				 	<span class="line2">Prace:</span><br>
 				 	<span>$ </span>
 				 	<input type="text" placeholder="min" class="linePraceMin"/>

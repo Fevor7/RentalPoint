@@ -1,3 +1,16 @@
+function quit() {
+	var request2 = new XMLHttpRequest();
+	request2.onreadystatechange = function() {
+		if(request2.readyState == 4 && request2.status==200){
+			document.querySelector('.exit').style.display = "none";
+			document.querySelector('.LogIn').innerText="LOGIN";
+		}
+	}
+	request2.open('POST','MainServlet');
+	request2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+	request2.send('action=quitSession');
+}
+
 function filterApply() {
 	var praceMin = document.querySelector('.linePraceMin');
 	var praceMax = document.querySelector('.linePraceMax');
@@ -19,11 +32,12 @@ function ajaxPostFilter(params) {
 	request.send(params);
 }
 function logIn(){
-
 	if (document.querySelector('.modal').style.display=="block") {
 		document.querySelector('.modal').style.display = "none";
 	} else {
+		if (document.querySelector('.LogIn').innerText=="LOGIN")
 		document.querySelector('.modal').style.display="block";
+		document.querySelector('.error').innerHTML ="";
 	}
 }
 
@@ -91,9 +105,11 @@ function outEquip(typeEQ,nameEQ) {
 	request2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 	request2.send(params2);
 }
-function session() {
-		var params = 'action=log';
-		ajaxPost3(params);
+function session(login) {
+		if (login!="LOGIN") {
+			document.querySelector('.exit').style.display = "block";
+		}
+		document.querySelector('.LogIn').innerText=login;
 }
 function ajaxPost3(params) {
 	var request = new XMLHttpRequest();
@@ -129,15 +145,12 @@ function ajaxPost(params) {
 			case 'error': {
 				document.querySelector('.error').innerHTML = "Login or password error"; break;
 			}
-			case 'user1': {
-			document.querySelector('.LogIn').innerText="User1"; 
-			document.querySelector('#autoriz').style.display = "none";
-			break;
-			}
 			default: {
-				document.querySelector('.arrort').style.display = "block";
-				document.querySelector('#autoriz').style.display = "none";
-				document.querySelector('.arrort').innerHTML = request.responseText; }
+				document.querySelector('.LogIn').innerText=request.responseText; 
+				document.querySelector('#autoriz').style.display = "none"; 
+				document.querySelector('.exit').style.display = "block";
+				document.querySelector('.error').innerHTML ="";
+				break; }
 			}
 		}
 	}

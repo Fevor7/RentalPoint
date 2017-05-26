@@ -29,7 +29,7 @@ public class LoginCommandAction implements CommandAction{
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
-		String page = PAGE_DEFAULT;
+		String page = null;
 		
 		String login = request.getParameter(REQUEST_PARAM_LOGIN);
 		String password = request.getParameter(REQUEST_PARAM_PASSWORD);
@@ -41,9 +41,9 @@ public class LoginCommandAction implements CommandAction{
 			if(!user.isRole()){
 				List<Equipment> equipment = equipService.list();
 				request.setAttribute(REQUEST_PARAM_LIST_EQ, equipment);
-				session.setAttribute("user", "user1");
+				session.setAttribute("user", user.getName());
 				try {
-					response.getWriter().print("user1");
+					response.getWriter().print(user.getName());
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
